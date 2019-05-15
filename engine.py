@@ -1,4 +1,7 @@
 # Shulk Bot
+'''
+General purpose bot based on Shulk
+'''
 # By Sage, Josh, and Harrison
 
 #Imports--------------------
