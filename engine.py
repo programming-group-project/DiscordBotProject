@@ -8,8 +8,10 @@ General purpose bot based on Shulk
 import discord
 from discord.ext import commands
 from discord.ext.commands import Bot
+from discord.voice_client import VoiceClient
 import asyncio
 import random
+
 #--------------------
 
 bot = commands.Bot(command_prefix='\\')
