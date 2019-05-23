@@ -11,11 +11,10 @@ from discord.ext.commands import Bot
 from discord.voice_client import VoiceClient
 import asyncio
 import random
-
 #--------------------
 
-bot = commands.Bot(command_prefix='\\')
-bot_name = "Shulk"
+bot = commands.Bot(command_prefix='s.')
+bot_name = "Test Shulk"
 
 # Bot Token
 # https://discordapp.com/oauth2/authorize?client_id=578610124726337547&scope=bot&permissions=999999
