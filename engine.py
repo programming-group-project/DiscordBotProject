@@ -1,4 +1,4 @@
-# Shulk Bot
+# Shulk Test Bot
 '''
 General purpose bot based on Shulk
 '''
@@ -34,7 +34,8 @@ async def hello(ctx, user: discord.Member = None):
     await bot.say(update_csv(ctx,user))
 
 # NEEDS TESTING--------------------
-'''async def on_message(message):      # CSV file updater
+'''@bot.event
+async def on_message(message):      # CSV file updater
     user = message.author
     temp = CSV.update(user.name,user.id)'''
 #--------------------
