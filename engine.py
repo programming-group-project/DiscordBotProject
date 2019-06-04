@@ -1,8 +1,10 @@
-# Shulk Bot
+#Commander Cody
 '''
-General purpose bot based on Shulk
+Test code bot before transferring to Shulk bot
 '''
-# By Sage, Josh, and Harrison
+#By Harrison
+
+#Invite Link: https://discordapp.com/oauth2/authorize?client_id=578925926046498827&scope=bot&permissions=999999
 
 #Imports--------------------
 import discord
@@ -13,4 +15,7 @@ import random
 #--------------------
 
 bot = commands.Bot(command_prefix='\\')
-bot_name = "Shulk"
+bot_name = "Commander Cody"
+
+#Bot Token
+bot.run("NTc4OTI1OTI2MDQ2NDk4ODI3.XN6uFw.xV3I_hgem9e6bikdYDII-HDD9q8")
