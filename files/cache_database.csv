@@ -1,2 +1,5 @@
-user_name,id
-Moon-Moon,257985797700059136
+user_name,id,is_bot,joined,top_role
+Moon-Moon,257985797700059136,False,2019-03-14 14:58:26.495000,Admin
+Million Dollar Snek,327192116134412299,False,2019-03-13 15:46:50.073000,Admin
+GroovyGrapeDrink,554643855752822795,False,2019-03-13 15:49:51.117000,Admin
+matt-the-marxist,264461253483692033,False,2019-03-14 14:57:29.473000,@everyone

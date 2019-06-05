@@ -21,7 +21,7 @@ CSV = csv_editor.csv_editor()
 def update_csv(ctx, user):          # CSV file updater function
     if user is None:
         user = ctx.message.author
-    return CSV.update(user.name,user.id)
+    return CSV.update(user)
 
 @bot.event                          # Ready Check If Bot Is Online
 async def on_ready():
