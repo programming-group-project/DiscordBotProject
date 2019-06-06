@@ -27,11 +27,11 @@ def update_csv(ctx, user):          # CSV file updater function
 async def on_ready():
     print("Test Shulk Bot is Running")
     print("I am running on " + bot.user.name)
-    print("With the ID: " + bot.user.id)
+    print("With the ID: " + str(bot.user.id))
 
 @bot.command(pass_context=True)
 async def hello(ctx, user: discord.Member = None):
-    await bot.say(update_csv(ctx,user))
+    await ctx.channel.send(update_csv(ctx,user))
 
 # NEEDS TESTING--------------------
 '''@bot.event
