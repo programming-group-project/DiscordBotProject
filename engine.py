@@ -12,16 +12,16 @@ from discord.voice_client import VoiceClient
 import asyncio
 import random
 import csv
-from files import csv_editor
+from csv_files import csv_editor
 #--------------------
 
 bot = commands.Bot(command_prefix='s.')
 bot_name = "Test Shulk"
-CSV = csv_editor.csv_editor()
+USER_CSV = csv_editor.csv_editor(0)
 def update_csv(ctx, user):          # CSV file updater function
     if user is None:
         user = ctx.message.author
-    return CSV.update(user)
+    return USER_CSV.update(user)
 
 @bot.event                          # Ready Check If Bot Is Online
 async def on_ready():
