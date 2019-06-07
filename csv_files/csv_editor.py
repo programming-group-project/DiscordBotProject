@@ -14,10 +14,12 @@ class csv_editor:
             self.comparison = 0
 
     def read_csv(self):
+        __returnmsg2 = []
         with open(self.csv, 'r') as csv_file:
             csv_reader = csv.DictReader(csv_file)
             for row in csv_reader:
-                print(row)
+                __returnmsg2 += [row[self.fieldnames[self.comparison]]]
+        return str(__returnmsg2)
 
     def update(self,user):
         user_name = user.name
@@ -69,9 +71,36 @@ class csv_editor:
                         csv_writer.writerow(row)
                 if(__new == True):
                     csv_writer.writerow({self.fieldnames[0]: arg})
-                    __returnmsg = "Added " + str(arg) + "to filter words"
+                    __returnmsg = "Added " + str(arg) + " to chat filter"
                 else:
-                    __returnmsg = str(arg) + " is already a filter word"
+                    __returnmsg = str(arg) + " is already in chat filter"
+                __new = True
+        with open(self.cache_csv, 'r') as csv_file:
+            csv_reader = csv.DictReader(csv_file)
+            with open(self.csv, 'w') as new_file:
+                csv_writer = csv.DictWriter(new_file, fieldnames=self.fieldnames, delimiter=',')
+                csv_writer.writeheader()
+                for row in csv_reader:
+                        csv_writer.writerow(row)
+        return __returnmsg
+
+    def remove_profanity(self, arg):
+        __returnmsg = ""
+        __new = True
+        with open(self.csv, 'r') as csv_file:
+            csv_reader = csv.DictReader(csv_file)
+            with open(self.cache_csv, 'w') as new_file:
+                csv_writer = csv.DictWriter(new_file, fieldnames=self.fieldnames, delimiter=',')
+                csv_writer.writeheader()
+                for row in csv_reader:
+                    if(row[self.fieldnames[self.comparison]] == arg):
+                        __new = False
+                    else:
+                        csv_writer.writerow(row)
+                if(__new == True):
+                    __returnmsg = str(arg) + " is not in chat filter"
+                else:
+                    __returnmsg = "Removed " + str(arg) + " from chat filter"
                 __new = True
         with open(self.cache_csv, 'r') as csv_file:
             csv_reader = csv.DictReader(csv_file)

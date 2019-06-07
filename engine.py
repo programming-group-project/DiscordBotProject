@@ -14,24 +14,16 @@ import random
 import csv
 from csv_files import csv_editor
 #--------------------
-USER_CSV = csv_editor.csv_editor(0)
-def update_csv(ctx, user):          # CSV file updater function
-    if user is None:
-        user = ctx.message.author
-    return USER_CSV.update(user)
-
-# NEEDS TESTING--------------------
-'''@bot.event
-async def on_message(message):      # CSV file updater
-    user = message.author
-    temp = CSV.update(user.name,user.id)'''
-#--------------------
 
 Client = discord.Client()
 bot = commands.Bot(command_prefix=']]')
 bot_name = "Commander Cody"
-
-chat_filter = ["OWO","UWU", "EWE", "0W0", "()W()", "()//()"]
+USER_CSV = csv_editor.csv_editor(0)
+PROF_CSV = csv_editor.csv_editor(1)
+def update_csv(ctx, user):          # CSV file updater function
+    if user is None:
+        user = ctx.message.author
+    return USER_CSV.update(user)
 
 @bot.event                          # Ready Check If Bot Is Online
 async def on_ready():
@@ -61,20 +53,16 @@ async def filteradd(ctx, arg, user: discord.Member = None):
     if user is None:
         user = ctx.message.author
     if(user.top_role.permissions.manage_messages == True or user.top_role.permissions.administrator == True):
-        chat_filter.append(arg.upper())
-        print(chat_filter)
-        await ctx.channel.send("Added " + str(arg) + " to the chat filter.")
+        await ctx.channel.send(PROF_CSV.add_profanity(arg.upper()))
     else:
         await ctx.channel.send("Mind tricks don't work on me.")
 
 @bot.command(pass_context=True)
-async def filterdelete(ctx, arg, user: discord.Member = None):
+async def filterdelete(ctx, *, arg, user: discord.Member = None):
     if user is None:
         user = ctx.message.author
     if(user.top_role.permissions.manage_messages == True or user.top_role.permissions.administrator == True):
-        chat_filter.remove(arg.upper())
-        print(chat_filter)
-        await ctx.channel.send("Removed " + str(arg) + " from the chat filter.")
+        await ctx.channel.send(PROF_CSV.remove_profanity(arg.upper()))
     else:
         await ctx.channel.send("Mind tricks don't work on me.")
 
@@ -83,10 +71,17 @@ async def chatfilter(ctx, user: discord.Member = None):
     if user is None:
         user = ctx.message.author
     if(user.top_role.permissions.manage_messages == True or user.top_role.permissions.administrator == True):
-        await ctx.channel.send(chat_filter)
+        await ctx.channel.send(PROF_CSV.read_csv())
     else:
         await ctx.channel.send("Mind tricks don't work on me.")
     
+
+# NEEDS TESTING--------------------
+'''@bot.event
+async def on_message(message):      # CSV file updater
+    user = message.author
+    temp = CSV.update(user.name,user.id)'''
+#--------------------
 
 # Bot Token-------------------------
 # https://discordapp.com/oauth2/authorize?client_id=578925926046498827&scope=bot&permissions=999999
