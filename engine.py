@@ -11,6 +11,20 @@ from discord.ext.commands import Bot
 from discord.voice_client import VoiceClient
 import asyncio
 import random
+import csv
+from csv_files import csv_editor
+#--------------------
+USER_CSV = csv_editor.csv_editor(0)
+def update_csv(ctx, user):          # CSV file updater function
+    if user is None:
+        user = ctx.message.author
+    return USER_CSV.update(user)
+
+# NEEDS TESTING--------------------
+'''@bot.event
+async def on_message(message):      # CSV file updater
+    user = message.author
+    temp = CSV.update(user.name,user.id)'''
 #--------------------
 
 Client = discord.Client()
@@ -39,6 +53,7 @@ async def on_message(message):
 async def hellothere(ctx, user: discord.Member = None):
     if user is None:
         user = ctx.message.author
+    temp = update_csv(ctx,user)
     await ctx.channel.send("General " + user.name + ".")
 
 @bot.command(pass_context=True)
@@ -78,4 +93,3 @@ async def chatfilter(ctx, user: discord.Member = None):
 #bot.run("NTc4NjEwMTI0NzI2MzM3NTQ3.XN2GuA.2aejkyAmJ7o6ovPtZTWuzIlboAs") # Shulk Bot
 #bot.run("NTgxMTM3NzM5MDg1MzgxNjMy.XOa4uQ.VklM6dv5PeyrvzpQ-eJLJcw9tK8") # Shulk Test Bot
 bot.run("NTc4OTI1OTI2MDQ2NDk4ODI3.XN6uFw.xV3I_hgem9e6bikdYDII-HDD9q8") # Commander Cody Test Bot
-#--------------------
