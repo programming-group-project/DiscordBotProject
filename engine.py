@@ -34,7 +34,7 @@ async def on_ready():
 
 @bot.command(pass_context=True)
 async def hello(ctx, user: discord.Member = None):
-    await bot.say(update_csv(ctx,user))
+    await bot.say(update_user_csv(ctx,user))
 
 # NEEDS TESTING--------------------
 '''@bot.event
