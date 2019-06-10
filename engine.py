@@ -76,6 +76,7 @@ async def on_member_remove(member):
 
 @bot.event
 async def on_message(message):          # Chat Filter
+    temp = USER_CSV.update(member)
     await bot.process_commands(message)
     contents = message.content.split(" ")
     chat_filter = PROF_CSV.read_csv()
@@ -197,13 +198,6 @@ async def leave(ctx):
 @bot.command(pass_context=True)
 async def play(ctx, arg, user: discord.Member = None):
     await ctx.channel.send("This doesn't work yet")'''
-#--------------------
-
-# NEEDS TESTING--------------------
-'''@bot.event
-async def on_message(message):      # CSV file updater
-    user = message.author
-    temp = CSV.update(user.name,user.id)'''
 #--------------------
 
 # Runs Bot--------------------
