@@ -31,15 +31,18 @@ async def on_ready():
     print("I am running on " + bot.user.name)
     print("With the ID: " + str(bot.user.id))
 
-'''
+
 @bot.event
 async def on_message(message):
+    await bot.process_commands(message)
     contents = message.content.split(" ")
-    for word in contents:
-        if word.upper() in chat_filter:
-            await message.delete()
-            await message.channel.send("NO DEGENERACY")
-'''
+    chat_filter = PROF_CSV.read_csv()
+    if(message.author.id != 578925926046498827):
+        for word in contents:
+            if word.upper() in chat_filter:
+                await message.delete()
+                await message.channel.send("NO DEGENERACY")
+
 
 @bot.command(pass_context=True)
 async def hellothere(ctx, user: discord.Member = None):
