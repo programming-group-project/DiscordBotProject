@@ -1,4 +1,4 @@
-# Commander Cody
+# Shulk Bot
 '''
 General purpose bot based on Shulk
 '''
@@ -24,8 +24,8 @@ TOKEN ="NTgxMTM3NzM5MDg1MzgxNjMy.XOa4uQ.VklM6dv5PeyrvzpQ-eJLJcw9tK8" # Shulk Tes
 
 #Bot Setup-------------------------
 Client = discord.Client()
-bot = commands.Bot(command_prefix='s.')
-bot_name = "Test Shulk Bot"
+bot = commands.Bot(command_prefix='S.')
+bot_name = "Shulk"
 USER_CSV = csv_editor.csv_editor(0)
 Prof_CSV = csv_editor.csv_editor(1)
 #--------------------
@@ -41,7 +41,7 @@ async def on_connect():
 
 @bot.event                              # Ready Check If Bot Is Online
 async def on_ready():
-    print("Bot is running")
+    print("Shulk Bot is running")
     print("I am running on " + bot.user.name)
     print("With the ID: " + str(bot.user.id))
 
