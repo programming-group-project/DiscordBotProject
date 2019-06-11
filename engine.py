@@ -26,7 +26,7 @@ TOKEN ="NTc4NjEwMTI0NzI2MzM3NTQ3.XN2GuA.2aejkyAmJ7o6ovPtZTWuzIlboAs" # Shulk Bot
 
 # Bot Setup-------------------------
 Client = discord.Client()
-bot = commands.Bot(command_prefix='S.')
+bot = commands.Bot(command_prefix='\\')
 bot_name = "Shulk"
 USER_CSV = csv_editor.csv_editor(0)
 PROF_CSV = csv_editor.csv_editor(1)
