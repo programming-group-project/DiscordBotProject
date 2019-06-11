@@ -26,7 +26,7 @@ TOKEN ="NTc4NjEwMTI0NzI2MzM3NTQ3.XN2GuA.2aejkyAmJ7o6ovPtZTWuzIlboAs" # Shulk Bot
 
 # Bot Setup-------------------------
 Client = discord.Client()
-bot = commands.Bot(command_prefix='\\')
+bot = commands.Bot(command_prefix='S.')
 bot_name = "Shulk"
 USER_CSV = csv_editor.csv_editor(0)
 PROF_CSV = csv_editor.csv_editor(1)
@@ -80,7 +80,7 @@ async def on_message(message):          # Chat Filter
     await bot.process_commands(message)
     contents = message.content.split(" ")
     chat_filter = PROF_CSV.read_csv()
-    if(message.author.id != 578925926046498827):
+    if(message.author.id != 578610124726337574):
         for word in contents:
             if word.upper() in chat_filter:
                 await message.delete()
@@ -150,21 +150,21 @@ async def chatfilter(ctx, user: discord.Member = None):
 
 @bot.command(pass_context=True)
 async def stats(ctx, arg):
-    if(arg.upper() == "Stalin"):
+    if(arg.upper() == "STALIN"):
         stat = Stalin
-    elif(arg.upper() == "Kim"):
+    elif(arg.upper() == "KIM"):
         stat = Jong_Un
-    elif(arg.upper() == "Drumpf"):
+    elif(arg.upper() == "DRUMPF"):
         stat = Drumpf
-    elif(arg.upper() == "Uncle"):
+    elif(arg.upper() == "UNCLE"):
         stat = Sam
-    elif(arg.upper() == "Lord"):
+    elif(arg.upper() == "LORD"):
         stat = Lord
-    elif(arg.upper() == "Wood"):
+    elif(arg.upper() == "WOOD"):
         stat = Wood
-    elif(arg.upper() == "Copper"):
+    elif(arg.upper() == "SHULK"):
         stat = Shulk
-    elif(arg.upper() == "Copper"):
+    elif(arg.upper() == "COPPER"):
         stat = Comrade
     else:
         stat = 0
