@@ -76,7 +76,7 @@ async def on_member_remove(member):
 
 @bot.event
 async def on_message(message):          # Chat Filter
-    temp = USER_CSV.update(message)
+    temp = USER_CSV.update(message.author)
     await bot.process_commands(message)
     contents = message.content.split(" ")
     chat_filter = PROF_CSV.read_csv()
